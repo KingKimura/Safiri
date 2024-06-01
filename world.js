@@ -212,9 +212,33 @@ function loadData(country) {
 
         let cn_name = allPopulation[x].country
 
+
+
+
         cn_name = cn_name.toLowerCase()
 
         let cn_population = allPopulation[x].population
+
+
+        let totalPop = Number(cn_population)
+
+
+
+        function numberWithCommas(x) {
+            x = x.toString();
+            var pattern = /(-?\d+)(\d{3})/;
+            while (pattern.test(x))
+                x = x.replace(pattern, "$1,$2");
+            return x;
+        }
+
+
+        totalPop = numberWithCommas(totalPop)
+
+
+        cn_population = totalPop
+
+
 
 
         for (let index = 0; index < cn_population.length; index++) {
