@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="world.css">
+    <title>World Finder</title>
+</head>
+
+<body>
+
+
+
+    <nav>
+        <h2>Safiri</h2><br>
+        <input type="text" class="userInput" oninput="updateCountry()" list="countryList">
+
+        <datalist id="countryList"></datalist>
+    </nav>
+
+
+    <div class=" main ">
+
+        <div class="resultContainer">
+            <div class="flagPost">
+                <img src="countries/ke.jpg " alt=" " class="current_country ">
+
+                <p class="title ">Title: </p>
+            </div>
+
+            <div class="result ">
+
+                <p class="capital ">Capital City</p>
+                <p class="population ">Population</p>
+                <p class="surfaceArea ">Surface Area</p>
+                <p class="gdp ">GDP</p>
+                <p class="currency ">Currency</p>
+                <p class="callingCode "></p>
+
+                <p class="religion">Religion</p>
+
+                <p class="avgTemp">Average Temperature</p>
+
+                <p class="landlocked">Landlocked</p>
+
+                <p class="region">Region</p>
+
+                <p class="languages">Languages</p>
+
+
+
+
+            </div>
+            <!-- <button class="
+            scale" onclick="viewData()">scale</button> -->
+        </div>
+
+    </div>
+
+
+
+    <div class="sliderContainer">
+        <button class="back" onclick="slideLeft()">Back</button>
+
+        <div class="countrySlider">
+
+
+
+
+        </div>
+
+        <button class="forward">Forward</button>
+    </div>
+
+
+
+
+</body>
+
+<script src="continent.js"></script>
+<script src="surfaceArea.js "></script>
+<script src="populations.js "></script>
+<script src="capitals.js "></script>
+<script src="abbreviations.js "></script>
+<script src="world.js "></script>
+
+</html>
