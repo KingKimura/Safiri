@@ -253,7 +253,7 @@ function loadData(country) {
 
             // cn_image.src = `countries/${cn_population}.jpg`
 
-            surfaceArea.innerHTML = `Surface Area: ${cn_area}`
+            surfaceArea.innerHTML = `Surface Area: ${cn_area} KM²`
 
             break
 

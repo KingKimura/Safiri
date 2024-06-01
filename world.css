@@ -1,5 +1,5 @@
 body {
-    background: rgb(10, 124, 168);
+    background: rgb(168, 86, 10);
 }
 
 nav {
@@ -103,6 +103,19 @@ nav {
 }
 
 .result p {
-    background-color: gray;
+    background-color: rgb(58, 56, 56);
     line-height: 30px;
+}
+
+.userInput {
+    background-color: rgba(243, 243, 243, 0.356);
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
