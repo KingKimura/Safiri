@@ -1,6 +1,15 @@
 let left = 0
 
 
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
+
+
 setTimeout(() => {
     loadData("Kenya")
 
@@ -49,7 +58,7 @@ function loadOptions() {
 
 
         let current_flag = `countries/${curr_abrev}.jpg`
-        console.log(`Current Flag: ${current_flag}`)
+            // console.log(`Current Flag: ${current_flag}`)
         let slider = document.querySelector('.countrySlider')
 
         let slide = document.createElement('img')
@@ -76,6 +85,9 @@ function loadOptions() {
 
             slide.addEventListener('click', () => {
                 let name = slide.id
+
+
+                document.querySelector('.userInput').value = name
                 loadData(name)
             })
         }
@@ -89,13 +101,14 @@ function loadOptions() {
         cntry.value = cn_name
 
 
-        countryList.append(cntry)
+
 
 
         if (continent === "Africa") {
-
+            console.log(continent);
+            countryList.append(cntry)
             slider.append(slide)
-            console.log("woza");
+                // console.log("woza");
         }
     }
 }
@@ -139,6 +152,15 @@ function loadData(country) {
 
     let region = document.querySelector('.region')
 
+    let coastline = document.querySelector('.coastLine')
+
+    let callingCode = document.querySelector('.callingCode')
+
+    let avgTemp = document.querySelector('.avgTemp')
+
+    let languageList = document.querySelector('.languageList')
+
+    let lifeExpectancy = document.querySelector('.lifeExpectancy')
 
 
     userInput = userInput.toLowerCase()
@@ -224,13 +246,7 @@ function loadData(country) {
 
 
 
-        function numberWithCommas(x) {
-            x = x.toString();
-            var pattern = /(-?\d+)(\d{3})/;
-            while (pattern.test(x))
-                x = x.replace(pattern, "$1,$2");
-            return x;
-        }
+
 
 
         totalPop = numberWithCommas(totalPop)
@@ -242,16 +258,17 @@ function loadData(country) {
 
 
         for (let index = 0; index < cn_population.length; index++) {
-            console.log(index);
+            // console.log(index);
 
         }
 
 
         if (userInput === cn_name) {
 
+
             // cn_image.src = `countries/${cn_population}.jpg`
 
-            population.innerHTML = `Population: ${cn_population}`
+            population.innerHTML = `Population: ${cn_population}👥`
 
             break
 
@@ -264,20 +281,117 @@ function loadData(country) {
     // Update Surface Area
 
 
-    for (x = 0; x < allAreas.length; x++) {
 
-        let cn_name = allAreas[x].country
+    function updateDataset(title = String, jsonLibrary = Array, propertyHtml = HTMLElement, dataproperty = String, visualTitle = String) {
+
+
+        let dataHtml = propertyHtml
+
+        // console.log(dataHtml.innerHTML);
+
+        for (x = 0; x < jsonLibrary.length; x++) {
+
+            let dataset = jsonLibrary[x].country
+                // console.log(dataset);
+
+            dataset = dataset.toLowerCase()
+
+            let data = jsonLibrary[x][dataproperty]
+
+
+            if (userInput === dataset) {
+
+                // cn_image.src = `countries/${cn_population}.jpg`
+
+                if (title === "surfaceArea") {
+                    data = Number(data)
+                    data = numberWithCommas(data)
+                    dataHtml.innerHTML = `${visualTitle}: ${data} KM²`
+
+                } else if (title === "Average Temperature") {
+                    dataHtml.innerHTML = `${visualTitle}: ${data} °C`
+                } else if (title === "Life Expectancy") {
+                    dataHtml.innerHTML = `${visualTitle}: ${data} Years.`
+                } else if (title === "Languages") {
+                    dataHtml.innerHTML = `Languages: `
+
+                    for (let index = 0; index < data.length; index++) {
+                        const element = data[index];
+
+
+
+                        if (index === (data.length - 1)) {
+
+                            dataHtml.innerHTML += `${element}. 
+                        
+                        `
+                        } else {
+                            dataHtml.innerHTML += `${element}, 
+                        
+                        `
+                        }
+
+                    }
+
+                } else if (title === "Coastline") {
+                    dataHtml.innerHTML = `${visualTitle}: ${data} KM`
+                } else {
+                    dataHtml.innerHTML = `${visualTitle}: ${data} `
+                }
+
+
+
+
+
+                break
+
+            }
+
+        }
+
+        console.log("updateSet");
+
+
+
+    }
+
+    updateDataset("surfaceArea", allAreas, surfaceArea, "area", "Surface Area")
+
+    updateDataset("region", regions, region, "location", "Region")
+
+    updateDataset("religion", religions, religion, "religion", "Religion")
+
+
+    updateDataset("Average Temperature", averageTemps, avgTemp, "temperature", "Average Temperature")
+
+    // updateDataset("currency", currencyNames, currency, "currency_name", "Currency")
+
+    updateDataset("Languages", languages, languageList, "languages", "Languages")
+
+    updateDataset("Life Expectancy", lifeExpectancies, lifeExpectancy, "expectancy", "Life Expectancy")
+
+
+    updateDataset("Coastline", coastlines, coastline, "costline", "CoastLine")
+
+
+
+
+
+    for (x = 0; x < currencyNames.length; x++) {
+
+        let cn_name = currencyNames[x].country
+        let currency_code = currencyCodes[x].currency_code
 
         cn_name = cn_name.toLowerCase()
 
-        let cn_area = allAreas[x].area
+        let cur_currency = currencyNames[x].currency_name
 
 
         if (userInput === cn_name) {
 
             // cn_image.src = `countries/${cn_population}.jpg`
 
-            surfaceArea.innerHTML = `Surface Area: ${cn_area} KM²`
+            currency.innerHTML = `Currency: ${cur_currency} (${currency_code}) `
 
             break
 
@@ -305,6 +419,7 @@ function loadData(country) {
 function viewData() {
 
     console.log("Result");
+
     let resultView = document.querySelector('.result')
 
     resultView.style = "min-height:600px"

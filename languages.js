@@ -1,5 +1,4 @@
-[
-    {
+let languages = [{
         "country": "Aruba",
         "languages": [
             "Dutch",
@@ -1691,9 +1690,9 @@
             "Slovak",
             "Romanian",
             "Croatian",
-            "Rusyn", 
+            "Rusyn",
             "Albanian",
-            "Bulgarian", 
+            "Bulgarian",
             "English"
         ]
     },

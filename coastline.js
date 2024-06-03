@@ -1,5 +1,4 @@
-[
-    {
+let coastlines = [{
         "country": "Afghanistan",
         "costline": 0
     },

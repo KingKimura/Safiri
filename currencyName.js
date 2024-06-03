@@ -1,4 +1,4 @@
-let currencyName = [{
+let currencyNames = [{
         "country": "Afghanistan",
         "currency_name": "Afghanistan Afghani"
     },

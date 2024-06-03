@@ -1,4 +1,4 @@
-let averageTemp = [{
+let averageTemps = [{
         "country": "Afghanistan",
         "temperature": 12.6
     },

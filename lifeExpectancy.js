@@ -1,4 +1,4 @@
-let lifeExpectancy = [{
+let lifeExpectancies = [{
         "country": "Afghanistan",
         "expectancy": 45.9
     },
