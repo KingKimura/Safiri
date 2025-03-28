@@ -29,6 +29,7 @@ nav {
 }
 
 .resultContainer {
+    display: none;
     position: relative;
     top: 0px;
     height: fit-content;
@@ -92,6 +93,12 @@ nav {
     height: 300px;
     margin-top: 200px;
 }
+
+
+/* .countrySlider :nth-child(4) {
+    height: 400px;
+    width: 500px;
+} */
 
 .slide {
     margin-right: 10px;

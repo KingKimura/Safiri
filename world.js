@@ -49,7 +49,7 @@ function updateCountry() {
 
 
 
-function loadOptions() {
+function loadFlags() {
     for (x = 0; x < abbrev.length; x++) {
 
         let curr_abrev = abbrev[x].abbreviation
@@ -115,7 +115,34 @@ function loadOptions() {
 
 
 
-loadOptions()
+
+
+
+
+function focusSlider() {
+    let slides = document.querySelectorAll('.slide')
+
+
+
+    let mainCss = `height:300px`
+    let subCss = ``
+    slides[3].style = mainCss
+    console.log("Focus");
+
+
+    // for (let x = 0; x < slides.length; x++) {
+    //     const cur_slide = slides[x];
+
+
+
+
+
+    // }
+
+
+
+
+}
 
 
 
@@ -406,6 +433,10 @@ function loadData(country) {
 }
 
 
+loadFlags()
+setTimeout(() => {
+    focusSlider()
+}, 3000)
 
 
 
