@@ -1,6 +1,10 @@
 body {
-    background: rgb(10, 176, 41);
-    background: linear-gradient(90deg, rgba(10, 176, 41, 1) 0%, rgba(6, 143, 42, 1) 42%, rgba(126, 176, 38, 1) 100%);
+    outline: 0;
+    padding: 0;
+    /* background: rgb(10, 176, 41); */
+    /* background: linear-gradient(90deg, rgba(10, 176, 41, 1) 0%, rgba(6, 143, 42, 1) 42%, rgba(126, 176, 38, 1) 100%); */
+    overflow: hidden;
+    background-color: rgb(53, 175, 135);
 }
 
 nav {
@@ -21,6 +25,8 @@ nav {
 }
 
 .flagPost {
+    position: ;
+    /* background-color: red; */
     text-align: center;
     font-weight: bold;
     color: white;
@@ -29,7 +35,7 @@ nav {
 }
 
 .resultContainer {
-    display: none;
+    display: ;
     position: relative;
     top: 0px;
     height: fit-content;
@@ -38,18 +44,24 @@ nav {
 }
 
 .result {
+    position: relative;
+    top: 0;
     display: grid;
     grid-template-columns: auto auto auto;
-    left: ;
     margin-top: ;
     width: 100vw;
-    background: transparent;
+    /* background: white; */
     text-align: center;
     font-size: 23px;
     color: white;
     font-weight: bold;
-    min-height: fit-content;
+    right: 00px;
+    0 min-height: fit-content;
     /* overflow: hidden; */
+}
+
+.resContainer1 {
+    margin-right: 00px;
 }
 
 #current_country {
@@ -76,19 +88,23 @@ nav {
 }
 
 .sliderContainer {
+    z-index: 100;
+    position: relative;
     max-width: 100%;
     /* width: 100%; */
     /* overflow: hidden; */
     /* position: absolute; */
-    bottom: -300px;
+    bottom: 200px;
+    transition: 0.2s;
 }
 
 .countrySlider {
     position: relative;
     overflow: scroll;
     display: flex;
+    align-items: center;
     /* grid-template-columns: auto auto auto auto auto; */
-    max-width: 100vw;
+    min-width: fit-content;
     bottom: 50px;
     height: 300px;
     margin-top: 200px;
@@ -103,8 +119,9 @@ nav {
 .slide {
     margin-right: 10px;
     margin-top: 20px;
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: 130px;
+    transition: .3s;
 }
 
 .population,
@@ -149,3 +166,22 @@ nav {
     background-color: white;
     color: rgb(29, 28, 28);
 } */
+
+.prevBtn,
+.nextBtn {
+    z-index: 400;
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    top: ;
+    font-size: 50px;
+    color: rgb(66, 59, 59);
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+}
+
+.nextBtn {
+    right: 0;
+}

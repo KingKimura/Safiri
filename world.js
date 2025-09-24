@@ -1,6 +1,17 @@
 let left = 0
 
 
+let prevBtn = document.querySelector('.prevBtn')
+let nextBtn = document.querySelector('.nextBtn')
+const next = '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>'
+
+
+const previous = `<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>`
+
+nextBtn.innerHTML = next
+prevBtn.innerHTML = previous
+
+
 function numberWithCommas(x) {
     x = x.toString();
     var pattern = /(-?\d+)(\d{3})/;
@@ -13,7 +24,7 @@ function numberWithCommas(x) {
 setTimeout(() => {
     loadData("Kenya")
 
-    console.log("Kenya Loaded");
+    // console.log("Kenya Loa
 }, 100)
 
 function updateCountry() {
@@ -28,10 +39,132 @@ function updateCountry() {
 
 
 
+// back represents the number of flags the user has skipped past  
+let back = 0
+
+function prevFlag() {
+    back--
+    let list = document.querySelector('.countrySlider')
+
+    if (back >= 1 && forward > 0) {
+        list.style = `right :${back * 200}px `
+
+        forward--
 
 
 
 
+        console.log(`
+        Back : ${back} \n 
+        Forward : ${forward}
+        `)
+
+
+    } else if (back = 0) {
+        list.style = `right :${back}px `
+
+        forward = 1
+
+        console.log(`
+        Back : ${back} \n 
+        Forward : ${forward}
+        `)
+    } else {
+        forward = 1
+        console.log("Limit Reached");
+        list.style = `right :0px `
+
+
+
+
+        console.log(`
+        Back : ${back} \n 
+        Forward : ${forward}
+        `)
+    }
+
+
+
+
+
+}
+
+
+let forward = 1
+
+function nextFlag() {
+
+
+
+
+    if (forward < 59) {
+
+        let list = document.querySelector('.countrySlider')
+
+
+        list.style = `right :${forward * 200}px `
+
+        forward++
+        back = forward
+
+        console.log(`
+        Back : ${back} \n 
+        Forward : ${forward}
+        `);
+
+
+    }
+
+}
+
+
+
+
+
+// Changes data Based on How the Slides are clicked
+function focusSlider() {
+
+    // console.log("Focus");
+    let slides = document.querySelectorAll('.slide')
+    let mainCss = `transform: scale(1); margin: 60px;   `
+        // /* height:200px; width:300px/*
+    let subCss = ``
+
+
+
+
+
+
+
+    console.log(slides.length);
+
+    if (slides.length === 59) {
+        let main = slides[2]
+
+        main.style = mainCss
+    }
+
+
+
+    // for (let x = 0; x < slides.length; x++) {
+    //     const cur_slide = slides[x];
+
+
+
+
+
+    // }
+
+
+
+
+}
+
+
+
+
+// Its been long minute since I've had my laptop
+// Today is Friday 28th March, I will be reviewing my code`.
 
 
 
@@ -50,6 +183,9 @@ function updateCountry() {
 
 
 function loadFlags() {
+
+
+    let totalFlags = 0
     for (x = 0; x < abbrev.length; x++) {
 
         let curr_abrev = abbrev[x].abbreviation
@@ -104,45 +240,31 @@ function loadFlags() {
 
 
 
-        if (continent === "Africa") {
+        if (continent) {
             console.log(continent);
             countryList.append(cntry)
             slider.append(slide)
                 // console.log("woza");
         }
+
+        if (x < (abbrev.length - 1)) {
+            focusSlider()
+        }
+
+        totalFlags = x
     }
-}
 
-
-
-
-
-
-
-function focusSlider() {
-    let slides = document.querySelectorAll('.slide')
-
-
-
-    let mainCss = `height:300px`
-    let subCss = ``
-    slides[3].style = mainCss
-    console.log("Focus");
-
-
-    // for (let x = 0; x < slides.length; x++) {
-    //     const cur_slide = slides[x];
-
-
-
-
-
-    // }
-
-
-
+    return totalFlags
 
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -150,6 +272,8 @@ function focusSlider() {
 
 
 function loadData(country) {
+
+    console.log("Load Data Function");
 
     // let country = country
 
@@ -223,11 +347,15 @@ function loadData(country) {
 
             title.innerHTML = `${cn_name}`
 
+            console.log(cn_name);
+
             break
 
         }
 
     }
+
+
 
 
 
@@ -340,7 +468,10 @@ function loadData(country) {
                 } else if (title === "Life Expectancy") {
                     dataHtml.innerHTML = `${visualTitle}: ${data} Years.`
                 } else if (title === "Languages") {
-                    dataHtml.innerHTML = `Languages: `
+
+                    let totalLanguages = data.length
+
+                    dataHtml.innerHTML = `Languages (${totalLanguages}): `
 
                     for (let index = 0; index < data.length; index++) {
                         const element = data[index];
@@ -363,6 +494,7 @@ function loadData(country) {
                 } else if (title === "Coastline") {
                     dataHtml.innerHTML = `${visualTitle}: ${data} KM`
                 } else {
+                    console.log(data);
                     dataHtml.innerHTML = `${visualTitle}: ${data} `
                 }
 
@@ -375,6 +507,8 @@ function loadData(country) {
             }
 
         }
+
+        console.log(country);
 
         console.log("updateSet");
 
@@ -391,7 +525,7 @@ function loadData(country) {
 
     updateDataset("Average Temperature", averageTemps, avgTemp, "temperature", "Average Temperature")
 
-    // updateDataset("currency", currencyNames, currency, "currency_name", "Currency")
+    updateDataset("currency", currencyNames, currency, "currency_name", "Currency")
 
     updateDataset("Languages", languages, languageList, "languages", "Languages")
 
@@ -434,9 +568,8 @@ function loadData(country) {
 
 
 loadFlags()
-setTimeout(() => {
-    focusSlider()
-}, 3000)
+
+
 
 
 
@@ -483,4 +616,9 @@ function slideLeft() {
 
 
     countrySlider.scrollLeft = pos
+}
+
+
+function rank(){
+    
 }

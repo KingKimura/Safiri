@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="world.css">
+    <title>Safiri</title>
+</head>
+
+<body>
+
+
+    <!-- <iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Kenya+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>    <a href='https://www.easybooking.eu/'>easybooking Hotelsoftware</a> -->
+    <nav>
+        <h2 style="color: white;">🌏Safiri</h2><br>
+        <input type="text" class="userInput" oninput="updateCountry()" list="countryList">
+
+        <datalist id="countryList"></datalist>
+
+        <butoon class="filter">Filter</butoon>
+
+    </nav>
+
+
+    <div class=" main ">
+
+        <div class="resultContainer">
+
+
+            <div class="result ">
+
+
+                <!-- This is where I store the country Information THen Dock it to the side -->
+                <div class="resContainer1">
+
+                    <p class="capital ">Capital City</p>
+                    <p class="population ">Population</p>
+                    <p class="surfaceArea ">Surface Area</p>
+                    <p class="region">Region</p>
+                    <p class="currency ">Currency</p>
+                    <!-- <p class="gdp ">GDP</p> -->
+
+
+                </div>
+
+                <div class="resContainerFlag">
+                    <div class="flagPost">
+                        <img src="countries/ke.jpg " alt=" " class="current_country ">
+
+                        <p class="title ">Title: </p>
+
+                    </div>
+                </div>
+
+                <div class="resContainer2">
+
+
+                    <!-- <p class="callingCode ">Calling Code</p> -->
+                    <p class="lifeExpectancy">Life Expectancy</p>
+
+
+
+                    <p class="religion">Religion</p>
+
+                    <p class="avgTemp">Average Temperature</p>
+
+                    <p class="coastLine">CoastLine</p>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <p class="languageList">Languages</p> -->
+
+
+
+
+            </div>
+
+
+            <ul class="languageList">Languages : </ul>
+            <!-- <button class="
+            scale" onclick="viewData()">scale</button> -->
+        </div>
+
+    </div>
+
+    <button class="prevBtn" onclick="prevFlag()"></button>
+
+    <button class="nextBtn" onclick="nextFlag()"></button>
+
+    <div class="sliderContainer">
+        <!-- <button class="back" onclick="slideLeft()">Back</button> -->
+
+        <div class="countrySlider">
+
+
+
+
+        </div>
+
+        <!-- <button class="forward">Forward</button> -->
+    </div>
+
+
+
+
+</body>
+<script src="source/landlocked.js"></script>
+<script src="source/abbreviations.js "></script>
+<script src="source/averageTemp.js"></script>
+<script src="source/capitals.js "></script>
+<script src="source/currencyName.js"></script>
+<script src="source/currencyCodes.js"></script>
+
+<script src="source/coastline.js"></script>
+<script src="source/continent.js"></script>
+<script src="source/languages.js"></script>
+<script src="source/religions.js"></script>
+<script src="source/lifeExpectancy.js"></script>
+<script src="source/surfaceArea.js "></script>
+<script src="source/region.js"></script>
+<script src="source/populations.js "></script>
+<script src="source/svg.js"></script>
+<script src="world.js "></script>
+
+<!-- <script src="sld.js"></script> -->
+
+</html>
